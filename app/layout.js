@@ -33,7 +33,7 @@ export const metadata = {
     images: ["https://your-domain.com/images/og-image.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
   robots: {
     index: true,
