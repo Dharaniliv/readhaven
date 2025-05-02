@@ -1,10 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
-
 html,
 body {
   height: 100%;
+  overflow-x: hidden; 
 }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Toastify__toast--success.custom-toast {
+  opacity: 0.9 !important; 
+  transition: opacity 1s ease-in-out;
+  user-select: none; 
+}
+
+
+@media (max-width: 768px) {
+  .Toastify__toast--success.custom-toast {
+    font-size: 14px; 
+    padding: 12px 18px; 
+  }
+  .Toastify__toast-container {
+    top: 15px !important; 
+    left: 10px !important; 
+    right: 10px !important;
+    width: auto !important; 
+  }
+}
+
+
+@media (max-width: 480px) {
+  .Toastify__toast--success.custom-toast {
+    font-size: 12px; 
+    padding: 10px 15px; 
+  }
+  .Toastify__toast-container {
+    top: 10px !important;
+  }
+}
+
