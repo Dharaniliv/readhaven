@@ -1,6 +1,7 @@
 
 import nodemailer from 'nodemailer';
-import { v4 as uuidv4 } from 'uuid';
+import { randomInt } from 'node:crypto';
+
 import { setOtpInDatabase } from '@/app/lib/utils/database';
 
 export async function POST(req) {
@@ -46,14 +47,28 @@ export async function POST(req) {
   }
 
 
-  const otpCode = uuidv4().slice(0, 6);
+  const otpCode = randomInt(100000, 1_000_000).toString();
+ 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: `"Dharani Prasath - ReadHaven" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: 'Your OTP Code',
-    text: `Your OTP is: ${otpCode}`,
-  };
+    subject: 'Your OTP Code for ReadHaven',
+  html: `
+  <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+    <h2 style="color: #333;">Welcome to ReadHaven</h2>
+    <p style="font-size: 16px;">Your One-Time Password (OTP) is:</p>
+    <p style="font-size: 28px; font-weight: bold; color: #1a202c; margin: 16px 0;">${otpCode}</p>
+    <p style="font-size: 14px; color: #555;">This OTP will expire in 10 minutes. Please do not share it with anyone.</p>
 
+    <p style="font-size: 14px; color: #777; margin-top: 32px; border-top: 1px solid #ddd; padding-top: 16px;">
+      With appreciation,<br />
+      <strong style="color: #333;">Dharani</strong><br />
+      <em style="color: #555;">Founder, ReadHaven</em>
+    </p>
+  </div>
+`
+  };
+  
 
   try {
     const info = await transporter.sendMail(mailOptions);
