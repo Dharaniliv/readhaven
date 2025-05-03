@@ -53,30 +53,22 @@ export default function NavbarTop() {
 
   return (
     <nav className="w-full max-w-[1920px] h-[92px] bg-[#7A4E2D] px-[16px] md:px-[48px] flex items-center justify-between text-[#1E3A5F] relative z-50">
-    
-      <Link
-        href="/"
-        className="flex items-center gap-[10px] cursor-pointer group md:order-1 order-2"
-        onClick={() => setActive("Home")}
-      >
-        <span className="text-white text-lg md:text-2xl font-bold font-playfair leading-snug tracking-tight group-hover:text-[#F5E8D9] transition-colors">
-          ReadHaven
-        </span>
-        <Image
-          src="/icons/Group.svg"
-          alt="Logo"
-          width={18}
-          height={18}
-          className="block group-hover:hidden transition-opacity md:w-[23px] md:h-[23px]"
-        />
-        <Image
-          src="/icons/Group-hover.svg"
-          alt="Logo Hover"
-          width={18}
-          height={18}
-          className="hidden group-hover:block transition-opacity md:w-[23px] md:h-[23px]"
-        />
-      </Link>
+    <Link
+  href="/"
+  className="flex items-center gap-[10px] cursor-pointer md:order-1 order-2"
+  onClick={() => setActive("Home")}
+>
+  <span className="text-white text-lg md:text-2xl font-bold font-playfair leading-snug tracking-tight">
+    ReadHaven
+  </span>
+  <Image
+    src="/icons/Group.svg"
+    alt="Logo"
+    width={18}
+    height={18}
+    className="block md:w-[23px] md:h-[23px]"
+  />
+</Link>
 
     
       <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-7 text-white">
@@ -204,8 +196,8 @@ export default function NavbarTop() {
 
 
      
-        <div
-  className="relative w-[42px] h-[36px] md:w-[50px] md:h-[44px] cursor-pointer group flex items-start justify-center"
+<div
+  className="relative w-[42px] h-[36px] md:w-[50px] md:h-[44px] cursor-pointer flex items-start justify-center"
   onClick={toggleCart}
 >
   <Image
@@ -213,14 +205,7 @@ export default function NavbarTop() {
     alt="Cart"
     width={42}
     height={36}
-    className="absolute top-0 left-0 group-hover:hidden transition-opacity md:w-[50px] md:h-[44px]"
-  />
-  <Image
-    src="/icons/Shopping bag-hover.svg"
-    alt="Cart Hover"
-    width={42}
-    height={36}
-    className="absolute top-0 left-0 hidden group-hover:block transition-opacity md:w-[50px] md:h-[44px]"
+    className="absolute top-0 left-0 md:w-[50px] md:h-[44px]"
   />
   {status !== "loading" && (
     <span className="text-[12px] md:text-[14px] text-[#7A4E2D] font-bold z-10 leading-[22px] font-montserrat translate-y-[13px] md:translate-y-[19px]">
@@ -228,6 +213,7 @@ export default function NavbarTop() {
     </span>
   )}
 </div>
+
 
       
         {isCartOpen && <CartSidebar isOpen={isCartOpen} onClose={toggleCart} />}

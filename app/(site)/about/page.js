@@ -114,52 +114,33 @@ export default function AboutPage() {
         
           <div className="flex justify-center lg:justify-start gap-[30px] mb-[23px]">
            
-            <div className="relative w-[32px] h-[32px] cursor-pointer group">
-              <Image
-                src="/icons/Instagramabout.svg"
-                alt="Instagram"
-                fill
-                className="group-hover:hidden"
-              />
-              <Image
-                src="/icons/Instagramabouthover.svg"
-                alt="Instagram Hover"
-                fill
-                className="hidden group-hover:block"
-              />
-            </div>
+          <div className="relative w-[32px] h-[32px] cursor-pointer">
+  <Image
+    src="/icons/Instagramabout.svg"
+    alt="Instagram"
+    fill
+    className="block"
+  />
+</div>
 
-          
-            <div className="relative w-[32px] h-[32px] cursor-pointer group">
-              <Image
-                src="/icons/Facebookabout.svg"
-                alt="Facebook"
-                fill
-                className="group-hover:hidden"
-              />
-              <Image
-                src="/icons/Facebookabouthover.svg"
-                alt="Facebook Hover"
-                fill
-                className="hidden group-hover:block"
-              />
-            </div>
+<div className="relative w-[32px] h-[32px] cursor-pointer">
+  <Image
+    src="/icons/Facebookabout.svg"
+    alt="Facebook"
+    fill
+    className="block"
+  />
+</div>
 
-        
-            <div className="relative w-[32px] h-[32px] cursor-pointer group">
-              <Image
-                src="/icons/Twitterabout.svg"
-                alt="Twitter"
-                fill
-                className="group-hover:hidden"
-              />
-              <Image
-                src="/icons/Twitterabouthover.svg"
-                alt="Twitter Hover"
-                fill
-                className="hidden group-hover:block"
-              />
-            </div>
+<div className="relative w-[32px] h-[32px] cursor-pointer">
+  <Image
+    src="/icons/Twitterabout.svg"
+    alt="Twitter"
+    fill
+    className="block"
+  />
+</div>
+
           </div>
 
           <h4 className="text-[#7A4E2D] text-[20px] lg:text-[24px] leading-[30px] font-playfair font-bold mb-[5px]">

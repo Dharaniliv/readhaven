@@ -8,28 +8,22 @@ export default function FooterMain() {
    
       <div className="w-[470px] h-[232px] flex flex-col items-center justify-center text-center left-section">
       
-        <Link href="/">
-        <div className="flex items-center gap-[10px] cursor-pointer group">
-            <span className="text-white text-[24px] md:text-[24px] font-bold font-playfair leading-snug tracking-tight group-hover:text-[#F5E8D9] transition-colors">
-              ReadHaven
-            </span>
-          
-          <Image
-            src="/icons/Group.svg"
-            alt="Logo"
-            width={23}
-            height={23}
-            className="block group-hover:hidden transition-opacity"
-          />
-          <Image
-            src="/icons/Group-hover.svg"
-            alt="Logo Hover"
-            width={23}
-            height={23}
-            className="hidden group-hover:block transition-opacity"
-          />
-        </div>
-        </Link>
+      <Link href="/">
+  <div className="flex items-center gap-[10px] cursor-pointer">
+    <span className="text-white text-[24px] md:text-[24px] font-bold font-playfair leading-snug tracking-tight">
+      ReadHaven
+    </span>
+
+    <Image
+      src="/icons/Group.svg"
+      alt="Logo"
+      width={23}
+      height={23}
+      className="block transition-opacity"
+    />
+  </div>
+</Link>
+
 
  
         <p className="mt-[16px] text-white font-lora font-medium sm:text-[18px] text-[15px]  leading-[28px] tracking-[0.01em] max-w-[350px]">
@@ -135,52 +129,33 @@ export default function FooterMain() {
           </h3>
           <div className="flex items-center gap-[40px] mt-[17px] follow-icons">
  
-            <div className="relative w-[30px] h-[30px] cursor-pointer group">
-              <Image
-                src="/icons/Instagram.svg"
-                alt="Instagram"
-                fill
-                className="block group-hover:hidden transition-opacity"
-              />
-              <Image
-                src="/icons/Instagram-hover.svg"
-                alt="Instagram Hover"
-                fill
-                className="hidden group-hover:block transition-opacity"
-              />
-            </div>
+          <div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Instagram.svg"
+    alt="Instagram"
+    fill
+    className="block transition-opacity"
+  />
+</div>
 
-        
-            <div className="relative w-[30px] h-[30px] cursor-pointer group">
-              <Image
-                src="/icons/Facebook.svg"
-                alt="Facebook"
-                fill
-                className="block group-hover:hidden transition-opacity"
-              />
-              <Image
-                src="/icons/Facebook-hover.svg"
-                alt="Facebook Hover"
-                fill
-                className="hidden group-hover:block transition-opacity"
-              />
-            </div>
+<div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Facebook.svg"
+    alt="Facebook"
+    fill
+    className="block transition-opacity"
+  />
+</div>
 
-          
-            <div className="relative w-[30px] h-[30px] cursor-pointer group">
-              <Image
-                src="/icons/Twitter.svg"
-                alt="Twitter"
-                fill
-                className="block group-hover:hidden transition-opacity"
-              />
-              <Image
-                src="/icons/Twitter-hover.svg"
-                alt="Twitter Hover"
-                fill
-                className="hidden group-hover:block transition-opacity"
-              />
-            </div>
+<div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Twitter.svg"
+    alt="Twitter"
+    fill
+    className="block transition-opacity"
+  />
+</div>
+
           </div>
         </div>
       </div>

@@ -153,52 +153,33 @@ export default function ContactPage() {
                 </h3>
                 <div className="flex items-center justify-center sm:justify-start gap-[30px] sm:gap-[40px]">
               
-                  <div className="relative w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] cursor-pointer group">
-                    <Image
-                      src="/icons/Instagramabouthover.svg"
-                      alt="Instagram"
-                      fill
-                      className="block group-hover:hidden transition-opacity"
-                    />
-                    <Image
-                      src="/icons/Instagramabout.svg"
-                      alt="Instagram Hover"
-                      fill
-                      className="hidden group-hover:block transition-opacity"
-                    />
-                  </div>
+               <div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Instagramabouthover.svg"
+    alt="Instagram"
+    fill
+    className="block transition-opacity"
+  />
+</div>
 
-            
-                  <div className="relative w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] cursor-pointer group">
-                    <Image
-                      src="/icons/Facebookabouthover.svg"
-                      alt="Facebook"
-                      fill
-                      className="block group-hover:hidden transition-opacity"
-                    />
-                    <Image
-                      src="/icons/Facebookabout.svg"
-                      alt="Facebook Hover"
-                      fill
-                      className="hidden group-hover:block transition-opacity"
-                    />
-                  </div>
+<div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Facebookabouthover.svg"
+    alt="Facebook"
+    fill
+    className="block transition-opacity"
+  />
+</div>
 
-           
-                  <div className="relative w-[26px] h-[26px] sm:w-[30px] sm:h-[30px] cursor-pointer group">
-                    <Image
-                      src="/icons/Twitterabouthover.svg"
-                      alt="Twitter"
-                      fill
-                      className="block group-hover:hidden transition-opacity"
-                    />
-                    <Image
-                      src="/icons/Twitterabout.svg"
-                      alt="Twitter Hover"
-                      fill
-                      className="hidden group-hover:block transition-opacity"
-                    />
-                  </div>
+<div className="relative w-[30px] h-[30px] cursor-pointer">
+  <Image
+    src="/icons/Twitterabouthover.svg"
+    alt="Twitter"
+    fill
+    className="block transition-opacity"
+  />
+</div>
+
                 </div>
               </div>
             </div>
