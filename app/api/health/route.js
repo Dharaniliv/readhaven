@@ -1,5 +1,5 @@
 export async function GET() {
-    // Simple endpoint so we can test deployment & fetch from Resend
-    return new Response('OK');
+    const res = await fetch('https://api.resend.com/health');
+    return new Response(`Resend health: ${res.status}`, { status: res.status });
   }
   
