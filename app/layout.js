@@ -14,12 +14,12 @@ export const metadata = {
   openGraph: {
     title: "ReadHaven",
     description: "Explore and buy your favorite books online at ReadHaven.",
-    url: "https://your-domain.com",
+    url: "https://readhaven.vercel.app",
     siteName: "ReadHaven",
     type: "website",
     images: [
       {
-        url: "https://your-domain.com/images/og-image.jpg",
+        url: "/images/og-image.jpg",  
         width: 1200,
         height: 630,
         alt: "ReadHaven - Discover Your Next Favorite Book",
@@ -30,10 +30,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "ReadHaven",
     description: "Explore and buy your favorite books online at ReadHaven.",
-    images: ["https://your-domain.com/images/og-image.jpg"],
+    images: "/images/og-image.jpg",  
   },
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.png",  
   },
   robots: {
     index: true,
@@ -41,13 +41,8 @@ export const metadata = {
     nocache: false,
   },
   alternates: {
-    canonical: "https://your-domain.com",
-    languages: {
-      'en': 'https://your-domain.com/en',
-      'fr': 'https://your-domain.com/fr',
-    },
-  },
- 
+    canonical: "https://readhaven.vercel.app",
+  },  
 };
 
 export const viewport = {
