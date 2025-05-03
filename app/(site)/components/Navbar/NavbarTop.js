@@ -289,12 +289,13 @@ export default function NavbarTop() {
         
           <div className="flex flex-col gap-3 pt-4">
             {session?.user ? (
-              <Link
-                href="/my-account"
-                className="w-full h-[48px] bg-[#1E3A5F] rounded-[8px] flex items-center justify-center font-bold"
-              >
-                My Account
-              </Link>
+            <Link
+            href="/my-account"
+            className="w-full h-[48px] bg-[#1E3A5F] rounded-[8px] flex items-center justify-center font-bold"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            My Account
+          </Link>
             ) : (
               <>
                 <Link

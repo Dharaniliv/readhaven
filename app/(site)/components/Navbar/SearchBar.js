@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef,  useLayoutEffect } from "react";
 import { useRouter, usePathname, } from "next/navigation";
 import { Search as SearchIcon,Loader } from "lucide-react";
 import { useSearch } from "@/app/(site)/context/SearchContext";
@@ -11,7 +11,7 @@ export default function SearchBar() {
   const router = useRouter();
   const pathname = usePathname();
   const { suggestions, fetchSuggestions, clearSuggestions } = useSearch();
-
+  const inputRef = useRef(null);
   
   const initialTerm = useMemo(() => {
     if (pathname.startsWith("/search/")) {
@@ -32,9 +32,7 @@ export default function SearchBar() {
     setTerm(initialTerm);
   }, [initialTerm]);
 
-  useEffect(() => {
-    setNavLoading(false);
-  }, [pathname]);
+
 
   const onSubmit = (e) => {
 
@@ -46,14 +44,19 @@ export default function SearchBar() {
       .replace(/[^\w\s]/g, "") 
       .replace(/\s+/g, "-")
       .toLowerCase();
- 
-    clearSuggestions();
-   
-    document.activeElement.blur();
-    setNavLoading(true);
-    router.push(`/search/${slug}`)
+  clearSuggestions();
+  setTerm(""); 
+  document.activeElement.blur();
+      router.push(`/search/${slug}`);
+      
   };
   
+  
+const handleSuggestionClick = (id) => {
+  clearSuggestions();       
+  setTerm("");
+  router.push(`/book/${id}`);
+};
   
   const handleChange = async (e) => {
     const v = e.target.value;
@@ -78,14 +81,17 @@ export default function SearchBar() {
           <input
             type="text"
               name="search"
+              autoComplete="off"
+
             value={term}
             onChange={handleChange}
             placeholder="Search books..."
             onFocus={() => setFocused(true)}
             onBlur={() => {
               setFocused(false);
-            
-              setTimeout(clearSuggestions, 100);
+              setTimeout(() => {
+                if (!navLoading) clearSuggestions();
+              }, 100);
             }}
             className="w-full h-full outline-none font-montserrat text-[16px] leading-[150%] tracking-[-0.01em] text-[#333333]
               placeholder:text-[#A08D7D] placeholder:font-normal placeholder:translate-y-[1.5px] placeholder:tracking-[-0.01em]"
@@ -97,18 +103,14 @@ export default function SearchBar() {
           )}
 
           
-          {suggestions.length > 0 && (
-            <ul className="absolute top-full left-0 right-0 mt-2 bg-white rounded-[6px] shadow-lg z-50 max-h-80 overflow-y-auto">
-              {suggestions.map((b) => (
-                <li
-                  key={b.id}
-                  onMouseDown={() => {
-                    setTerm(""); 
-                    router.push(`/book/${b.id}`);
-                    clearSuggestions();
-                  }}
-                  className="flex items-center px-4 py-3 hover:bg-[#F5F5F5] cursor-pointer"
-                >
+{suggestions.length > 0 && (
+  <ul className="absolute top-full left-0 right-0 mt-2 bg-white rounded-[6px] shadow-lg z-50 max-h-80 overflow-y-auto">
+    {suggestions.map((b) => (
+      <li
+        key={b.id}
+        onMouseDown={() => handleSuggestionClick(b.id)}
+        className="flex items-center px-4 py-3 hover:bg-[#F5F5F5] cursor-pointer"
+      >
                   <Image
                     src={b.cover}
                     alt={b.title}
