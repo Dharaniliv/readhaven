@@ -13,6 +13,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import DeleteBookButton from "@/app/(site)/components/DeleteBookButton"; 
 import BookDetailsClientSection from "../../components/BookDetailsClientSection";
 import EditBookButton from "../../components/EditBookButton";
+import BuyNowButton from "../../components/BuyNowButton";
 
 export async function generateMetadata({ params }) {
   const { id } =await params;
@@ -144,9 +145,7 @@ export default async function BookDetailsPage({ params }) {
           <BookDetailsClientSection book={book} email={session?.user?.email} />
 
         
-          <button className="mt-[25px] sm:mt-[38px] w-full sm:w-[683px] h-[56px] sm:h-[64px] bg-[#8B5E3C] hover:bg-[#7A4E2D] text-white rounded-[6px] font-montserrat font-bold text-[18px] sm:text-[20px] leading-[22px] sm:leading-[22px] tracking-[1px]">
-            BUY NOW
-          </button>
+       <BuyNowButton amount={book.price} bookTitle={book.title} />
 
          
           <div className="mt-[20px] sm:mt-[25px] text-[#7A4E2D] text-[18px] sm:text-[24px] leading-[22px] sm:leading-[30px] font-playfair font-medium">
