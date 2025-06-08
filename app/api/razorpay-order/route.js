@@ -7,9 +7,7 @@ const razorpay = new Razorpay({
 
 export async function POST(req) {
   try {
-    const body = await req.json();
-    const amount = body.amount ?? 10 * 100; // Use amount from request, fallback to 10₹
-
+    const amount = 10 * 100; 
     const options = {
       amount,
       currency: "INR",
@@ -19,6 +17,7 @@ export async function POST(req) {
 
     const order = await razorpay.orders.create(options);
 
+
     return new Response(JSON.stringify({ orderId: order.id }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
@@ -27,6 +26,7 @@ export async function POST(req) {
     if (process.env.NODE_ENV === "development") {
       console.error("🛑 Razorpay order creation failed:", err);
     }
+
     return new Response(
       JSON.stringify({ error: err.message || "Unknown error" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
